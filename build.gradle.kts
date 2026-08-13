@@ -15,7 +15,14 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    systemProperty("file.encoding", "UTF-8")
 }
+
+tasks.withType<JavaExec> {
+    systemProperty("file.encoding", "UTF-8")
+    systemProperty("console.encoding", "UTF-8")
+}
+
 kotlin {
     jvmToolchain(18)
-}
+}
