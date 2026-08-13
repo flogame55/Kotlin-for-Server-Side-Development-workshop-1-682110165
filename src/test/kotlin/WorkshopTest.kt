@@ -77,10 +77,42 @@ class WorkshopTest {
     // ในที่นี้จะสมมุติว่ามีฟังก์ชันชื่อ calculateTotalElectronicsPriceOver500 ที่รับ List<Product> และคืนค่า Double
     // จงเขียน test cases สำหรับฟังก์ชันนี้ โดยตรวจสอบผลรวมราคาสินค้า Electronics ที่ราคา > 500 บาท
     // 🚨
+    @Test
+    fun `Test Sum Electronics Price Over 500`(){
+        val products = listOf(
+            Product("Laptop", price = 35000.0, category = "Electronics"),
+            Product("Smartphone", price = 25000.0, category = "Electronics"),
+            Product("T-shirt", price = 450.0, category = "Apparel"),
+            Product("Monitor", price = 7500.0, category = "Electronics"),
+            Product("Keyboard", price = 499.0, category = "Electronics"),
+            Product("Jeans", price = 1200.0, category = "Apparel"),
+            Product("Headphones", price = 1800.0, category = "Electronics")
+        )
+        val expectedOutput = 69300.0
 
+        val actualOutput = calculateTotalElectronicsPriceOver500(products)
+
+        assertEquals(expectedOutput, actualOutput, 0.001, "Sum should be 69300.0 Bath")
+    }
     // จงเขียน test cases เช็คจำนวนสินค้าที่อยู่ในหมวด 'Electronics' และมีราคามากกว่า 500 บาท
     // 🚨
+    @Test
+    fun `Test Count Electronics Price Over 500`(){
+        val products = listOf(
+            Product("Laptop", price = 35000.0, category = "Electronics"),
+            Product("Smartphone", price = 25000.0, category = "Electronics"),
+            Product("T-shirt", price = 450.0, category = "Apparel"),
+            Product("Monitor", price = 7500.0, category = "Electronics"),
+            Product("Keyboard", price = 499.0, category = "Electronics"),
+            Product("Jeans", price = 1200.0, category = "Apparel"),
+            Product("Headphones", price = 1800.0, category = "Electronics")
+        )
+        val expectedOutput = 4
 
+        val actualOutput = calculateTotalElectronicsCount(products)
+
+        assertEquals(expectedOutput.toDouble(), actualOutput.toDouble(), 0.001, "Count should be 4.0")
+    }
 
     // --- Tests for Workshop #2: Data Analysis Pipeline End ---
 }

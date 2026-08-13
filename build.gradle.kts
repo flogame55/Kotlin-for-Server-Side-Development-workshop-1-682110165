@@ -24,5 +24,5 @@ tasks.withType<JavaExec> {
 }
 
 kotlin {
-    jvmToolchain(18)
+    jvmToolchain(21)
 }
